@@ -1,3 +1,6 @@
+% 对cos和sin的迭代更新公式进行改进，使用移位和加法来动态更新目标阈值 T_i
+% 该算法的误差较大
+
 function [ar] = arcsin_improved(target)
     itr = 12;
     cosa = 0.60725293501;

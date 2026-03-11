@@ -1,3 +1,4 @@
+% 基于改进的 CORDIC 算法实现反正弦函数，使用动态更新的目标阈值 T_i 来提高精度
 function [ar] = arcsin_proposed(target)
     % 参数设置
     M = 12; % 总迭代次数
@@ -17,12 +18,12 @@ function [ar] = arcsin_proposed(target)
     % 3. 算法初始化 (跳过 i=0 的首级迭代) [cite: 175]
     % 直接从 i=1 的状态开始，此时相位为 arctan(1) = pi/4 
     X = A_M_prime * cos(pi/4);
-    Y = A_M_prime * sin(pi/4);
+    Y = X;
     Z = pi/4;
     
     % 目标阈值 T_0 = abs_target，由于跳过了 i=0，需要手动计算 T_1 [cite: 168, 177]
     % T_1 = T_0 + T_0 * 2^(-2*0-1) = T_0 * (1 + 2^-1)
-    T = abs_target * (1 + 2^(-1)); 
+    T = abs_target * (1.5 / sqrt(2));
     
     % 4. 核心微旋转计算 (从 i = 1 到 M-1) [cite: 210]
     for i = 1:M-1
