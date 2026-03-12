@@ -27,25 +27,22 @@ function [ar] = arcsin_fixed(target)
     T = floor(abs_target * INIT_Target / 2^(exp_dp));
     
     for i = 1:M-1
+            X_current = X;
+            Y_current = Y;
+            X_shift = floor(X_current / 2^i);
+            Y_shift = floor(Y_current / 2^i);
+            T_shift = floor(T / (2^(2*i+1)));
         if Y < T
-            delta = 1;
+            X = X_current - Y_shift;
+            Y = Y_current + X_shift;
+            Z = Z + angle_rom(i);
+            T = T + T_shift;
         else
-            delta = -1;
+            X = X_current + Y_shift;
+            Y = Y_current - X_shift;
+            Z = Z - angle_rom(i);
+            T = T + T_shift;
         end
-        
-        X_current = X;
-        Y_current = Y;
-
-        X_shift = floor(X_current / 2^i);
-        Y_shift = floor(Y_current / 2^i);
-        T_shift = floor(T / (2^(2*i+1)));
-
-        X = X_current - delta * Y_shift;
-        Y = Y_current + delta * X_shift;
-
-        Z = Z + delta * angle_rom(i);
-        
-        T = T + T_shift;
     end
     
     if is_negative

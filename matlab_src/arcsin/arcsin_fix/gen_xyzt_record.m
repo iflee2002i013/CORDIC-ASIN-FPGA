@@ -104,7 +104,21 @@ fclose(fid);
 
 writematrix(results, output_file, 'WriteMode', 'append');
 
+%% 保存定点化输入与输出到单独的 txt 文件
+target_fix_file = 'report/target_fix.txt';
+ar_fix_file = 'report/ar_fix.txt';
+
+fid_target = fopen(target_fix_file, 'w');
+fprintf(fid_target, '%d\n', results(:, 2));
+fclose(fid_target);
+
+fid_ar = fopen(ar_fix_file, 'w');
+fprintf(fid_ar, '%d\n', results(:, 7));
+fclose(fid_ar);
+
 fprintf('处理完成。结果已保存至: %s\n', output_file);
+fprintf('定点化输入(Target_Fix)已保存至: %s\n', target_fix_file);
+fprintf('定点化输出(AR_Fix)已保存至: %s\n', ar_fix_file);
 disp('前 5 行数据预览:');
 disp(headers);
 disp(results(1:min(5, num_test_cases), :));
