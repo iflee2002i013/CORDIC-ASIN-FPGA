@@ -1,0 +1,4 @@
+/home/host/ZF_PRJ/CORDIC-ASIN-FPGA/env/cordic_const_pkg.sv
+/home/host/ZF_PRJ/CORDIC-ASIN-FPGA/rtl/angle_rom.sv
+/home/host/ZF_PRJ/CORDIC-ASIN-FPGA/rtl/cordic_arcsin.sv
+/home/host/ZF_PRJ/CORDIC-ASIN-FPGA/tb/cordic_arcsin_tb.sv

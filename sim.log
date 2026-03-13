@@ -1,0 +1,59 @@
+Command: /home/host/ZF_PRJ/CORDIC-ASIN-FPGA/./simv -l sim.log +fsdbfile+tb.fsdb
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version V-2023.12-SP2_Full64; Runtime version V-2023.12-SP2_Full64;  Mar 13 00:46 2026
+*Verdi* Loading libsscore_vcs202312.so
+FSDB Dumper for VCS, Release Verdi_V-2023.12-SP2, Linux x86_64/64bit, 05/26/2024
+(C) 1996 - 2024 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'tb.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+FAIL [Case 0]: 输入 sina =       -1946, 期望输出 =        -637, 实际输出 =        -254
+FAIL [Case 1]: 输入 sina =       -1843, 期望输出 =        -571, 实际输出 =        -252
+FAIL [Case 2]: 输入 sina =       -1741, 期望输出 =        -519, 实际输出 =        -248
+FAIL [Case 3]: 输入 sina =       -1638, 期望输出 =        -473, 实际输出 =        -244
+FAIL [Case 4]: 输入 sina =       -1536, 期望输出 =        -433, 实际输出 =        -242
+FAIL [Case 5]: 输入 sina =       -1434, 期望输出 =        -397, 实际输出 =        -238
+FAIL [Case 6]: 输入 sina =       -1331, 期望输出 =        -361, 实际输出 =        -236
+FAIL [Case 7]: 输入 sina =       -1229, 期望输出 =        -329, 实际输出 =        -232
+FAIL [Case 8]: 输入 sina =       -1126, 期望输出 =        -297, 实际输出 =        -228
+FAIL [Case 9]: 输入 sina =       -1024, 期望输出 =        -267, 实际输出 =        -226
+FAIL [Case 10]: 输入 sina =        -922, 期望输出 =        -237, 实际输出 =        -222
+FAIL [Case 11]: 输入 sina =        -819, 期望输出 =        -209, 实际输出 =        -218
+FAIL [Case 12]: 输入 sina =        -717, 期望输出 =        -181, 实际输出 =        -216
+FAIL [Case 13]: 输入 sina =        -614, 期望输出 =        -157, 实际输出 =        -150
+FAIL [Case 14]: 输入 sina =        -512, 期望输出 =        -129, 实际输出 =        -150
+FAIL [Case 15]: 输入 sina =        -410, 期望输出 =        -103, 实际输出 =        -150
+FAIL [Case 16]: 输入 sina =        -307, 期望输出 =         -77, 实际输出 =        -150
+FAIL [Case 17]: 输入 sina =        -205, 期望输出 =         -51, 实际输出 =        -150
+FAIL [Case 18]: 输入 sina =        -102, 期望输出 =         -25, 实际输出 =        -150
+FAIL [Case 19]: 输入 sina =           0, 期望输出 =           1, 实际输出 =         150
+FAIL [Case 20]: 输入 sina =         102, 期望输出 =          25, 实际输出 =         150
+FAIL [Case 21]: 输入 sina =         205, 期望输出 =          51, 实际输出 =         150
+FAIL [Case 22]: 输入 sina =         307, 期望输出 =          77, 实际输出 =         150
+FAIL [Case 23]: 输入 sina =         410, 期望输出 =         103, 实际输出 =         150
+FAIL [Case 24]: 输入 sina =         512, 期望输出 =         129, 实际输出 =         150
+FAIL [Case 25]: 输入 sina =         614, 期望输出 =         157, 实际输出 =         150
+FAIL [Case 26]: 输入 sina =         717, 期望输出 =         181, 实际输出 =         216
+FAIL [Case 27]: 输入 sina =         819, 期望输出 =         209, 实际输出 =         218
+FAIL [Case 28]: 输入 sina =         922, 期望输出 =         237, 实际输出 =         222
+FAIL [Case 29]: 输入 sina =        1024, 期望输出 =         267, 实际输出 =         226
+FAIL [Case 30]: 输入 sina =        1126, 期望输出 =         297, 实际输出 =         228
+FAIL [Case 31]: 输入 sina =        1229, 期望输出 =         329, 实际输出 =         232
+FAIL [Case 32]: 输入 sina =        1331, 期望输出 =         361, 实际输出 =         236
+FAIL [Case 33]: 输入 sina =        1434, 期望输出 =         397, 实际输出 =         238
+FAIL [Case 34]: 输入 sina =        1536, 期望输出 =         433, 实际输出 =         242
+FAIL [Case 35]: 输入 sina =        1638, 期望输出 =         473, 实际输出 =         244
+FAIL [Case 36]: 输入 sina =        1741, 期望输出 =         519, 实际输出 =         248
+FAIL [Case 37]: 输入 sina =        1843, 期望输出 =         571, 实际输出 =         252
+FAIL [Case 38]: 输入 sina =        1946, 期望输出 =         637, 实际输出 =         254
+----------------------------------------
+TEST FAILED: 共有 39/39 个测试用例验证失败！
+----------------------------------------
+$finish called from file "./tb/cordic_arcsin_tb.sv", line 118.
+$finish at simulation time              5905000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 5905000 ps
+CPU Time:      0.290 seconds;       Data structure size:   0.0Mb
+Fri Mar 13 00:46:52 2026

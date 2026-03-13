@@ -4,7 +4,7 @@ module cordic_arcsin
     input logic clk,
     input logic rst_n,
     // --输入数据和控制--
-    input logic [SINA_W-1:0] sina,
+    input logic signed [SINA_W-1:0] sina,
     input logic trig,
     // --输出数据和控制--
     output logic signed [ARCSIN_SIGN_W-1:0] arcsina,
@@ -19,14 +19,18 @@ logic [XY_W-1:0] x_q, x_d, x_shift;
 logic [XY_W-1:0] y_q, y_d, y_shift;
 logic [T_W-1:0]  t_q, t_d, t_shift;
 logic [Z_W-1:0]  z_q, z_d;
+logic is_nagitve;
+logic [SINA_W-1:0] sina_abs;
+logic [2*T_W-1:0] t_d_temp;
 
 logic [3:0] itr_q, itr_d;
 logic vld_q, vld_d;
 logic delta;
 
+//assign angle_rom_addr = (itr_1 > 0) ? (itr_q - 1'b1) : 4'd0;
 
 angle_rom u_angle_rom(
-	.addr 	( angle_rom_addr  ),
+	.addr 	( itr_q  ),
 	.data 	( angle_rom_data  )
 );
 
@@ -37,7 +41,7 @@ always_ff @(posedge clk or negedge rst_n)begin
         z_q   <= '0;
         t_q   <= '0;
         itr_q <= '0;
-        vld <= 1'b0;
+        vld_q <= 1'b0;
     end else begin
         x_q <= x_d;
         y_q <= y_d;
@@ -59,16 +63,25 @@ always_comb begin
 
     x_shift = x_q >>> itr_q;
     y_shift = y_q >>> itr_q;
-    t_shift = t_q >>> (2* itr_q + 1);
+    t_shift = t_q >>> (2 * itr_q + 1);
 
     delta = (y_q < t_q) ? 1'b1 : 1'b0;
 
     if(itr_q == 4'd0) begin
         if(trig)begin
+            if(sina<0) begin
+                is_nagitve = 1;
+                sina_abs = -sina;
+            end else begin
+                is_nagitve = 0;
+                sina_abs = sina;
+            end
             x_d = 13'd1546;
             y_d = 13'd1546;
             z_d = 10'd402;
             itr_d = 4'd1;
+            t_d_temp = (sina_abs << 11) + (sina_abs << 7) - (sina_abs << 2);//sina_abs * 13'd2172
+            t_d = (t_d_temp + (1 << (T_W - 1))) >>> T_W;
         end
     end
     else if (itr_q <= 4'd11) begin
@@ -89,5 +102,6 @@ always_comb begin
         itr_d = 4'd0;
     end
 end
-assign arcsin = z_q;
+assign arcsina = is_nagitve ? (-z_q) : z_q;
+assign vld = vld_d;
 endmodule

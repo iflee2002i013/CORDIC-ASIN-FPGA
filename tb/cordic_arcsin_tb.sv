@@ -49,7 +49,7 @@ module cordic_arcsin_tb;
         int err_cnt = 0;
 
         // 1. 读取 输入 激励文件
-        fd_target = $fopen("d:/PRJ_verilog/CORDIC-ASIN-FPGA/matlab_src/arcsin/arcsin_fix/report/target_fix.txt", "r");
+        fd_target = $fopen("./matlab_src/arcsin/arcsin_fix/report/target_fix.txt", "r");
         if (fd_target == 0) begin
             $display("ERROR: 无法打开 target_fix.txt");
             $stop;
@@ -60,7 +60,7 @@ module cordic_arcsin_tb;
         $fclose(fd_target);
 
         // 2. 读取 预期 输出文件
-        fd_ar = $fopen("d:/PRJ_verilog/CORDIC-ASIN-FPGA/matlab_src/arcsin/arcsin_fix/report/ar_fix.txt", "r");
+        fd_ar = $fopen("./matlab_src/arcsin/arcsin_fix/report/ar_fix.txt", "r");
         if (fd_ar == 0) begin
             $display("ERROR: 无法打开 ar_fix.txt");
             $stop;
@@ -77,6 +77,7 @@ module cordic_arcsin_tb;
         #30;
         rst_n = 1;
         #20;
+
 
         // 4. 开始逐个激励注入并验证
         for (i = 0; i < TEST_NUM; i++) begin
