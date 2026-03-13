@@ -23,8 +23,9 @@ function [ar] = arcsin_proposed(target)
     
     % 目标阈值 T_0 = abs_target，由于跳过了 i=0，需要手动计算 T_1 [cite: 168, 177]
     % T_1 = T_0 + T_0 * 2^(-2*0-1) = T_0 * (1 + 2^-1)
-    T = abs_target * (1.5 / sqrt(2));
-    
+    % T = abs_target * (1.5 / sqrt(2));
+    T = abs_target * 1.5;
+
     % 4. 核心微旋转计算 (从 i = 1 到 M-1) [cite: 210]
     for i = 1:M-1
         % 确定微旋转方向：比较当前 Y 分量与动态阈值 T [cite: 168]
