@@ -38,7 +38,7 @@ module cordic_arcsin_tb;
     // 测试数据读取与验证
     // -------------------------------------------------------------
     // 从txt读取基准数据
-    localparam TEST_NUM = 39;
+    localparam TEST_NUM = 191;
     int target_data [0:TEST_NUM-1];
     int expected_data [0:TEST_NUM-1];
 
@@ -49,7 +49,7 @@ module cordic_arcsin_tb;
         int err_cnt = 0;
 
         // 1. 读取 输入 激励文件
-        fd_target = $fopen("./matlab_src/arcsin/arcsin_fix/report/target_fix.txt", "r");
+        fd_target = $fopen("./matlab_src/arcsin/arcsin_fix/report/target_fix_13bit.txt", "r");
         if (fd_target == 0) begin
             $display("ERROR: 无法打开 target_fix.txt");
             $stop;
