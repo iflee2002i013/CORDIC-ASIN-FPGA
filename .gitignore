@@ -1,0 +1,41 @@
+# VCS / Simulation Artifacts
+csrc/
+simv
+simv.daidir/
+*.daidir/
+*.vpd
+*.vcd
+*.fsdb
+*.conf
+*.rc
+*.log
+ucli.key
+vc_hdrs.h
+dve_history.tcl
+DVEfiles/
+verdiLog/
+novas*
+prof.out
+sim.log
+compile.log
+
+# Verdi
+verdi_config_file
+
+# Hidden temporary files
+.elabcomCmd
+.vcs.timestamp
+
+# Build directories
+build/
+work/
+
+# Editors
+.vscode/
+*~
+*.swp
+*.swo
+
+# Generated Reports
+# Adjust this if you want to keep reports
+# matlab_src/arcsin/arcsin_fix/report/

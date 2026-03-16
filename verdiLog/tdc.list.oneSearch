@@ -1,4 +1,0 @@
-./rtl/angle_rom.sv
-./rtl/cordic_arcsin.sv
-./env/cordic_const_pkg.sv
-./tb/cordic_arcsin_tb.sv
